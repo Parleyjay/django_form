@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<center>
+<h1>Fill In Form To Database</h1>
+<br/><br/>
+
+
+{% if submitted %}
+Your Form Was Submitted Successfully!!
+
+{% else %}
+<Form action = "{%url 'user_form' %}" method = "POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+<input type = "submit" value="Submit"
+class="btn btn-secondary">   
+</Form>
+{% endif %}
+</center>  
+
+{% endblock %}
